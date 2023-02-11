@@ -2230,8 +2230,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1859784442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7450263875866181533, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
+  m_PrefabInstance: {fileID: 1058101434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1895746309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4086151060663629314, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
+  m_PrefabInstance: {fileID: 1058101434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1895746311 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4086151060663629321, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
   m_PrefabInstance: {fileID: 1058101434}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1895746316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895746309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc1d08fe6e26b34197d2cd153bd60e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightAttack: 122
+  animatorPlayer1: {fileID: 1895746311}
+  noOfLightInputs: 0
+  maxLightComboDelay: 1.2
+  HitBox: {fileID: 1859784442}

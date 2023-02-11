@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player1Combo : MonoBehaviour
 {
-
+    public KeyCode LightAttack;// 
     public Animator animatorPlayer1;
     public int noOfLightInputs = 0;  // LIGHT ATTACK COMBOS
    
@@ -31,7 +31,7 @@ public class Player1Combo : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown("j")) //if j is pressed then 
+        if (Input.GetKeyDown(LightAttack)) //if j is pressed then 
         {
             lastClickedTime = Time.time;//click time = time of program
             noOfLightInputs++; //increase the no of inputs, this allows for the other attacks
