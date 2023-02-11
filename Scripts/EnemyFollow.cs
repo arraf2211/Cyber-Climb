@@ -26,11 +26,11 @@ public class EnemyFollow : MonoBehaviour
         Vector3 EnemyScale = transform.localScale;
         if (EnemyPosition > 0)
         {
-            EnemyScale.x = -1; //right
+            EnemyScale.x = -(System.Math.Abs(EnemyScale.x)); //right
         }
         if (EnemyPosition < 0)
         {
-            EnemyScale.x = 1;//left
+            EnemyScale.x = System.Math.Abs(EnemyScale.x);//left
         }
         transform.localScale = EnemyScale;
     }

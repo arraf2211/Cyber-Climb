@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 638519061}
   - component: {fileID: 638519057}
   - component: {fileID: 638519058}
-  - component: {fileID: 638519059}
   - component: {fileID: 638519060}
   - component: {fileID: 638519062}
   - component: {fileID: 638519063}
@@ -216,7 +215,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff47e6a2d22e8914db9a768928bcbde5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.11854753, g: 0.13237672, b: 0.2264151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -364,29 +363,6 @@ MonoBehaviour:
   LightAttack: 5
   HitBox: {fileID: 798106942}
   PlayerLightAttack: 0
---- !u!114 &638519059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9222794634116502235}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bebf8e81f0597746816a1881cb58dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 15
-  isGrounded: 1
-  moveAnimation: 0
-  Player2Left: 276
-  Player2right: 275
-  Player2Jump: 273
-  Player2LightAttack: 122
-  Player2Block: 99
-  Player2Heavy: 120
-  Player2Special: 118
-  animatorPlayer2: {fileID: 638519061}
 --- !u!114 &638519060
 MonoBehaviour:
   m_ObjectHideFlags: 0
