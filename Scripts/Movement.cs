@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-        public float moveSpeed; //character speed
-    public bool isGrounded = false;//to check if the player is on the ground
+    public float moveSpeed; //character speed
+    //public bool isGrounded = false;//to check if the player is on the ground
     public float moveAnimation; //to find speed of the player for the running animation
+    private BoxCollider2D coll;
+    [SerializeField] public LayerMask jumpable;
 
     public KeyCode Player1Left;//player1 left key so A
     public KeyCode Player1right;//RIGHT KEY SO D
@@ -22,6 +24,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         animatorPlayer1 = gameObject.GetComponent<Animator>();
+        coll = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -76,7 +79,7 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(PlayerJump) && isGrounded == true)//if w is pressed and is grounded allow it to jump
+        if (Input.GetKeyDown(PlayerJump) && Grounded())//if w is pressed and is grounded allow it to jump
         {
             
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);//adds a force in y axis so jumping
@@ -87,7 +90,7 @@ public class Movement : MonoBehaviour
         {
             Landed();//call up landed function
         }
-        if (isGrounded == false)//if grounded is false so in the sky
+        if (!Grounded())//if grounded is false so in the sky
         {
             animatorPlayer1.SetBool("Jumping", true);//this is true so that  it plays the jumping animation to look like falling
         }
@@ -96,6 +99,10 @@ public class Movement : MonoBehaviour
     public void Landed()//landed function
     {
         animatorPlayer1.SetBool("Jumping", false);//tells the animator that it has landed so stops playing the jumping animation
+    }
+
+    private bool Grounded(){
+       return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable);
     }
 
     

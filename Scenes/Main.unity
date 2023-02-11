@@ -2011,38 +2011,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: moveSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: PlayerJump
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: isGrounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: LightAttack
-      value: 122
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: Player1Left
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: Player1Heavy
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: Player1right
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565665693035612592, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: animatorPlayer1
-      value: 
-      objectReference: {fileID: 1895746311}
     - target: {fileID: 4086151060663629314, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
       propertyPath: m_Name
       value: Arraf - still
@@ -2050,14 +2018,6 @@ PrefabInstance:
     - target: {fileID: 4086151060663629316, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086151060663629316, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086151060663629316, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4086151060663629316, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2230,35 +2190,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1859784442 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7450263875866181533, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-  m_PrefabInstance: {fileID: 1058101434}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1895746309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4086151060663629314, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-  m_PrefabInstance: {fileID: 1058101434}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1895746311 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4086151060663629321, guid: 795672283ab842e49b16a1de4cbe0a08, type: 3}
-  m_PrefabInstance: {fileID: 1058101434}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1895746316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895746309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc1d08fe6e26b34197d2cd153bd60e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LightAttack: 122
-  animatorPlayer1: {fileID: 1895746311}
-  noOfLightInputs: 0
-  maxLightComboDelay: 1.2
-  HitBox: {fileID: 1859784442}

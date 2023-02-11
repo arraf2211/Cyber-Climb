@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 4086151060663629319}
   - component: {fileID: 4086151060663629321}
   - component: {fileID: 2565665693035612592}
+  - component: {fileID: 1895746316}
   m_Layer: 9
   m_Name: Arraf - still
   m_TagString: Player
@@ -102,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 4086151060663629314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -25.74, y: -2.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4086151061208009181}
@@ -176,7 +177,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03554058, y: -0.19171786}
+  m_Offset: {x: -0.03554058, y: -0.19898689}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -187,7 +188,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5333233, y: 3.2673187}
+  m_Size: {x: 1.5333233, y: 3.2818568}
   m_EdgeRadius: 0
 --- !u!50 &4086151060663629319
 Rigidbody2D:
@@ -242,18 +243,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01f93f815009094b8465b2924f830fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  isGrounded: 0
+  moveSpeed: 10
   moveAnimation: 0
-  Player1Left: 0
-  Player1right: 0
-  PlayerJump: 0
-  LightAttack: 0
+  jumpable:
+    serializedVersion: 2
+    m_Bits: 8
+  Player1Left: 97
+  Player1right: 100
+  PlayerJump: 119
+  LightAttack: 122
   Player1Block: 0
-  Player1Heavy: 0
+  Player1Heavy: 120
   Player1Special: 0
   Player1ULT: 0
-  animatorPlayer1: {fileID: 0}
+  animatorPlayer1: {fileID: 4086151060663629321}
+--- !u!114 &1895746316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086151060663629314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc1d08fe6e26b34197d2cd153bd60e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightAttack: 122
+  animatorPlayer1: {fileID: 4086151060663629321}
+  noOfLightInputs: 0
+  maxLightComboDelay: 1.2
+  HitBox: {fileID: 7450263875866181533}
 --- !u!1 &4086151061208009180
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4086151061208009181
 Transform:
   m_ObjectHideFlags: 0

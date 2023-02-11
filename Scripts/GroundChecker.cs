@@ -5,10 +5,13 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {
     GameObject Player;
+    bool grounded;
+
     // Start is called before the first frame update
     void Start()
     {
-        Player = gameObject.transform.parent.gameObject;
+        Player = gameObject;
+        //grounded = Player.GetComponent<Movement>().isGrounded;
     }
 
     // Update is called once per frame
@@ -18,23 +21,25 @@ public class GroundChecker : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("cool");
         if (collision.collider.tag == "Ground")
         {
-            Player.GetComponent<Movement2d>().isGrounded = true;
+            grounded = true;
             
             
         }
         if (collision.collider.tag == "Player")
         {
-            Player.GetComponent<Movement2d>().isGrounded = true;
+            grounded = true;
         }
     }
 
     public void OnCollisionExit2D(Collision2D collision)
     {
+        Debug.Log("cool");
         if (collision.collider.tag == "Ground")
         {
-            Player.GetComponent<Movement2d>().isGrounded = false;
+            grounded = false;
             
         }
         
