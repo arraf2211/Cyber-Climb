@@ -54,7 +54,7 @@ public class P1GETHIT : MonoBehaviour
         {
             
             P1health -= LightAttack;
-            animatorPlayer.SetBool("Stunned", true);
+            //animatorPlayer.SetBool("Stunned", true);
             StartCoroutine(WaitSeconds());
             HealthBar1.SetHealth(P1health);//new helath is used to set the health bar 
             
