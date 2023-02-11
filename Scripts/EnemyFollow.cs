@@ -7,6 +7,9 @@ public class EnemyFollow : MonoBehaviour
     public float speedAi;
     public float DistanceFromPlayer;
 
+    public GameObject enemy;
+    public Animator animatorPlayer;
+
     public Transform target;
 
     // Start is called before the first frame update
@@ -21,6 +24,7 @@ public class EnemyFollow : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) > DistanceFromPlayer) //compares distance from player to enemy
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speedAi * Time.deltaTime);//if is greater than watever value, then it will movetowards the player
+            
         }
         float EnemyPosition = transform.position.x;
         Vector3 EnemyScale = transform.localScale;
@@ -33,5 +37,9 @@ public class EnemyFollow : MonoBehaviour
             EnemyScale.x = System.Math.Abs(EnemyScale.x);//left
         }
         transform.localScale = EnemyScale;
+
+        if(EnemyPosition >= 0.2){
+            animatorPlayer.SetBool("LightAttack1",true);
+        }
     }
 }

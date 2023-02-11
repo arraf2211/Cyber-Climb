@@ -149,9 +149,11 @@ GameObject:
   - component: {fileID: 638519062}
   - component: {fileID: 638519063}
   - component: {fileID: 638519071}
+  - component: {fileID: 717715533}
+  - component: {fileID: 717715534}
   m_Layer: 9
   m_Name: EllisIdle
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 9222794634116502235}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -8.301403, y: -2.5059466, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4183675293697664652}
@@ -215,7 +217,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff47e6a2d22e8914db9a768928bcbde5, type: 3}
-  m_Color: {r: 0.11854753, g: 0.13237672, b: 0.2264151, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -325,12 +327,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9222794634116502235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51efd6b55350a644d8d0f3339cd2d7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P2health: 200
+  P2health: 100
   HealthBar2: {fileID: 0}
   HealthBar1: {fileID: 0}
   SpecialBar2: {fileID: 0}
@@ -431,3 +433,36 @@ MonoBehaviour:
   animatorPlayer1: {fileID: 638519061}
   PlayerSpecial: 118
   PlayerULT: 98
+--- !u!114 &717715533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222794634116502235}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc03553c6079fd48bf391dbd8452445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedAi: 5
+  DistanceFromPlayer: 0
+  target: {fileID: 0}
+--- !u!114 &717715534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222794634116502235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a99552f4aa4b9d4fae521f372399a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitBox: {fileID: 0}
+  animatorPlayer: {fileID: 638519061}
+  rb: {fileID: 9222794634116502234}
+  MaxHealth: 100
+  currentHealth: 0
+  damageReceive: 50

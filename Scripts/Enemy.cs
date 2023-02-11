@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject HitBox;
+    public GameObject enemy;
+    public Animator animatorPlayer;
+    public Rigidbody2D rb;
     public int MaxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
+    public int damageReceive;
 
     // Start is called before the first frame update
     void Start()
@@ -13,21 +18,41 @@ public class Enemy : MonoBehaviour
         currentHealth = MaxHealth;
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage; //play hurt animation and sound
-
+    void Update(){
         if (currentHealth <= 0)
         {
-            Die();
+            animatorPlayer.SetBool("Dead",true);
+            StartCoroutine(WaitSeconds(2));
+            Destroy(enemy); //unless better way of destroying enemy
         }
     }
 
-    void Die()
+    public void TakeDamage()
     {
-        Debug.Log("Enemy dead");
-        //play animation here 
-        //disable enemy
+        currentHealth -= damageReceive; //play hurt animation and sound
+        //damageScript = HitBox.GetComponent<P1GivenDam>(); //gets variable from the P1 given damage 
+        
     }
+
+    void OnTriggerEnter2D(Collider2D target) //if the collider clllides with the hitbox then
+    {
+        if (target.tag == HitBox.tag) //if the hotbox tag is the same then make the enemy lose health
+        {
+            currentHealth -= damageReceive; 
+            animatorPlayer.SetBool("Stunned", true);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;// gotta do this so that it stops moving, and also coz if I freeze a single axis the Z axis gets unfrozen???
+           // GameScript.GetComponent<Player2Movement>().enabled = false; //fix
+           StartCoroutine(WaitSeconds(1));
+        }
+    }
+    private IEnumerator WaitSeconds(int time) //for being attack by attacks
+    {
+        yield return new WaitForSeconds(time);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;//allows it to keep rotation frozen
+        animatorPlayer.SetBool("Stunned", false);
+       // GameScript.GetComponent<Player2Movement>().enabled = true;
+    }
+
+    
     
 }
