@@ -75,14 +75,14 @@ public class P1GETHIT : MonoBehaviour
 
         if(target.tag == "Spikes"){
             P1health -= spikeDamage;
-            Rigidbody2D player = this.gameObject.GetComponent<Rigidbody2D>(); 
-            Rigidbody2D spike = target.GetComponent<Rigidbody2D>();
-            player.isKinematic = false;
-            Vector2 diff = player.transform.position - spike.transform.position;
-            diff = diff.normalized * 0.5f;
-            player.AddForce(diff, ForceMode2D.Impulse);
-            player.isKinematic = true;
-            StartCoroutine(KnockC(player));
+            // Rigidbody2D player = this.gameObject.GetComponent<Rigidbody2D>(); 
+            // //Rigidbody2D spike = target.GetComponent<Rigidbody2D>();
+            // player.isKinematic = false;
+            // Vector2 diff = player.transform.position - target.transform.position;
+            // diff = diff.normalized * 0.5f;
+            // player.AddForce(diff, ForceMode2D.Impulse);
+            // player.isKinematic = true;
+            // StartCoroutine(KnockC(player));
            // HealthBar1.SetHealth(P1health);//new helath is used to set the health bar 
         }
 
