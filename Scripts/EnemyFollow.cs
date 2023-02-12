@@ -38,7 +38,7 @@ public class EnemyFollow : MonoBehaviour
         }
         transform.localScale = EnemyScale;
          if(EnemyPosition <= 0.2){///needs work
-            animatorPlayer.SetBool("LightAttack1",true);
+            //animatorPlayer.SetBool("LightAttack1",true);
         }
        
     }
