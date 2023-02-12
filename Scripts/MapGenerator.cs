@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
+    static int seed;
+
     public GameObject[] horizontalPresets;
     public GameObject[] upPresets;
     public GameObject[] dropPresets;
@@ -15,7 +17,7 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Random.InitState(1);
+        Random.InitState(seed);
 
         map = new GameObject[4,4];
 
@@ -62,5 +64,9 @@ public class MapGenerator : MonoBehaviour
         } 
         while (i == exc);
         return i;
+    }
+
+    public static void SetSeed(int v) {
+        seed = v;
     }
 }
