@@ -190,6 +190,8 @@ MonoBehaviour:
   - {fileID: 7656367189756248503, guid: 241ae31dcc390af49887dc81699d305e, type: 3}
   dropPresets:
   - {fileID: 7656367189756248503, guid: 313c39c785abb3b4c90f2f20bb4d0849, type: 3}
+  winPresets:
+  - {fileID: 7656367189756248503, guid: ca549de3b78345742ba03a1d8ba9ab23, type: 3}
   targetMap: {fileID: 1599855360}
 --- !u!4 &822054866 stripped
 Transform:

@@ -10,6 +10,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject[] horizontalPresets;
     public GameObject[] upPresets;
     public GameObject[] dropPresets;
+    public GameObject[] winPresets;
 
     public GameObject[,] map;
     public Tilemap targetMap;
@@ -44,6 +45,10 @@ public class MapGenerator : MonoBehaviour
 
             section = GetRandomNotI(0, width, section);
         }
+
+        GameObject winPreset = winPresets[Random.Range(0, winPresets.Length)];
+        map[height - 1, section] = Instantiate<GameObject>(winPreset, new Vector3(16 * section, 12 * (height - 1), 0), Quaternion.identity);
+        map[height - 1, section].transform.parent = transform;
 
         for (int i = 0; i < height; i++)
         {
