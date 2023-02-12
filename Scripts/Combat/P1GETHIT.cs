@@ -12,16 +12,17 @@ public class P1GETHIT : MonoBehaviour
     public Animator animatorPlayer;
 
     public GameObject HitBox;         //HITBOXES USED TO REGISTER THE ATTACK
-    public GameObject HeavyHitBox;
-    public GameObject ULTHitBox;
-    public GameObject SpecialHitbox;
-    public GameObject ULTvideo;
+    //public GameObject HeavyHitBox;
+    public GameObject spikeBox;
+    
     public int TimeToStop;
     public GameObject HUD;
 
     public float LightAttack; //USED TO SHOW HOW MUCH DAMAGE TO OUPTUT
-    public float HeavyAttack;
+    //public float HeavyAttack;
     public float SpecialAttack;
+
+    public float spikeDamage;
 
     public GameObject WinnerUI; //to show if p2 has won
     
@@ -50,55 +51,37 @@ public class P1GETHIT : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target) //if the collider clllides with the hitbox then
     {
+        Debug.Log(target.tag );
         if (target.tag == HitBox.tag) //if the hotbox tag is the same then make the enemy lose health //LIGHT ATTACK HITBOX
         {
             
             P1health -= LightAttack;
             //animatorPlayer.SetBool("Stunned", true);
             StartCoroutine(WaitSeconds());
-            HealthBar1.SetHealth(P1health);//new helath is used to set the health bar 
+            //HealthBar1.SetHealth(P1health);//new helath is used to set the health bar 
             
             
         }
-        if (target.tag == HeavyHitBox.tag)//if collides with heavy hitbox then make em lose health
+        /* if (target.tag == HeavyHitBox.tag)//if collides with heavy hitbox then make em lose health
         {
             
             P1health -= HeavyAttack;//lose how much which is stated in the heavy section
             animatorPlayer.SetBool("Stunned", true);
             StartCoroutine(WaitSeconds());
             HealthBar1.SetHealth(P1health);
-        }
+        } */
 
-        if (target.tag == SpecialHitbox.tag)
-        {
-            P1health -= SpecialAttack;
-            nextCoolDownTime = Time.time + CooldownTime;//this basically resets the timer for cooldown
-            animatorPlayer.SetBool("Stunned", true);
+        if(target.tag == "Spikes"){
+            Debug.Log("assad");
+            P1health -= spikeDamage;
             StartCoroutine(WaitSeconds());
-            HealthBar1.SetHealth(P1health);
-           
-        }
-
-        if (target.tag == ULTHitBox.tag)//if collides with ULT1 hitbox then make em lose health
-        {
-            //animatorPlayer.SetBool("Stunned", true); uncomment when uve worked out how to make the player appear on screen
-            ULTvideo.SetActive(true); //plays the video
-            HUD.SetActive(false); //causes hud to hide 
-            StartCoroutine(WaitForSeconds());//calls the wait for seconds rountine, where after how long the video will stop playing, and the canvas will return
-
-
+           // HealthBar1.SetHealth(P1health);//new helath is used to set the health bar 
         }
 
         
 
-    }
-    private IEnumerator WaitForSeconds() //for being attack by ult attacks
-    {
-        yield return new WaitForSeconds(TimeToStop);
-        ULTvideo.SetActive(false);
-        HUD.SetActive(true);
-        P1health -= 75;//lowers health
-        HealthBar1.SetHealth(P1health);
+        
+
     }
 
     private IEnumerator WaitSeconds() //for being attack by attacks

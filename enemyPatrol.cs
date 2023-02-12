@@ -11,11 +11,12 @@ public class enemyPatrol : MonoBehaviour
     [SerializeField] float baseCaseDist;
 
     Vector3 baseScale;
-    
+    public Animator animatorPlayer1;
 
     // Start is called before the first frame update
     void Start()
     {
+        animatorPlayer1 = gameObject.GetComponent<Animator>();
         myRigid = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
     }
@@ -41,18 +42,22 @@ public class enemyPatrol : MonoBehaviour
             print("hit");
             transform.localScale = new Vector2(-(Mathf.Sign(myRigid.velocity.x)/2), transform.localScale.y);
             if(isFacingRight()){
-            myRigid.velocity = new Vector2(speed, 0f);
+                myRigid.velocity = new Vector2(speed, 0f);
+                animatorPlayer1.SetBool("Running", true);
             }
             else{
-            myRigid.velocity = new Vector2(-speed, 0f);
+                myRigid.velocity = new Vector2(-speed, 0f);
+                animatorPlayer1.SetBool("Running", true);
             }
         }
         else{
             if(isFacingRight()){
-            myRigid.velocity = new Vector2(speed, 0f);
+                myRigid.velocity = new Vector2(speed, 0f);
+                animatorPlayer1.SetBool("Running", true);
             }
             else{
-            myRigid.velocity = new Vector2(-speed, 0f);
+                myRigid.velocity = new Vector2(-speed, 0f);
+                animatorPlayer1.SetBool("Running", true);
             }
         }
             
