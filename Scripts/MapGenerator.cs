@@ -15,7 +15,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject[,] map;
     public Tilemap targetMap;
 
-    const int height = 10;
+    const int height = 8;
     const int width = 4;
 
     // Start is called before the first frame update

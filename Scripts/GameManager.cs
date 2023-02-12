@@ -14,9 +14,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ExitToMenu();
+        }
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             Restart();
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            OnWin();
         }
     }
 

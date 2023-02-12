@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 1577840470257442553}
   m_Layer: 9
   m_Name: EllisIdle
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
