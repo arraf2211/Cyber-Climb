@@ -9,6 +9,16 @@ public class MenuManager : MonoBehaviour
 {
     public InputField seedInput;
 
+    public Text winText;
+
+    private void Start()
+    {
+        if (winText != null)
+        {
+            winText.text = "You Now Own: Level-" + MapGenerator.GetSeed().ToString();
+        }
+    }
+
     public void onPlay()
     {
         int seed;

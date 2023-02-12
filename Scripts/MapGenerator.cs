@@ -14,21 +14,24 @@ public class MapGenerator : MonoBehaviour
     public GameObject[,] map;
     public Tilemap targetMap;
 
+    const int height = 10;
+    const int width = 4;
+
     // Start is called before the first frame update
     void Start()
     {
         Random.InitState(seed);
 
-        map = new GameObject[4,4];
+        map = new GameObject[height,width];
 
         GenerateMap();
     }
 
     void GenerateMap()
     {
-        int section = GetRandomNotI(0, 4, -1);
+        int section = GetRandomNotI(0, width, -1);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < height - 1; i++)
         {
             GameObject upPreset = upPresets[Random.Range(0, upPresets.Length)];
             map[i, section] = Instantiate<GameObject>(upPreset, new Vector3(16 * section, 12 * i, 0), Quaternion.identity);
@@ -39,12 +42,12 @@ public class MapGenerator : MonoBehaviour
             map[i+1, section].transform.parent = transform;
       
 
-            section = GetRandomNotI(0, 4, section);
+            section = GetRandomNotI(0, width, section);
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j < width; j++)
             {
                 if (map[i, j] != null) { continue; }
 
@@ -68,5 +71,10 @@ public class MapGenerator : MonoBehaviour
 
     public static void SetSeed(int v) {
         seed = v;
+    }
+
+    public static int GetSeed()
+    {
+        return seed;
     }
 }
