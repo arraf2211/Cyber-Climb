@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public GameObject enemy;
     public Animator animatorPlayer;
     public Rigidbody2D rb;
+    public Collider2D coll;
     public int MaxHealth = 100;
     public int currentHealth;
     public int damageReceive;
@@ -16,14 +17,19 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = MaxHealth;
+        coll = GetComponent<Collider2D>();
     }
 
     void Update(){
         if (currentHealth <= 0)
         {
             animatorPlayer.SetBool("Dead",true);
-            StartCoroutine(WaitSeconds(2));
-            Destroy(enemy); //unless better way of destroying enemy
+            // coll.enabled = false;
+            //     rb.mass = 5f;
+            //     rb.gravityScale = 3f;
+                StartCoroutine("KillSwicth");
+            //StartCoroutine(WaitSeconds(2));
+            //Destroy(enemy); //unless better way of destroying enemy
         }
     }
 
@@ -41,6 +47,10 @@ public class Enemy : MonoBehaviour
             currentHealth -= damageReceive; 
             animatorPlayer.SetBool("Stunned", true);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;// gotta do this so that it stops moving, and also coz if I freeze a single axis the Z axis gets unfrozen???
+            // if(currentHealth <= 0){
+            //     animatorPlayer.SetBool("Dead",true);
+                
+            // }
            // GameScript.GetComponent<Player2Movement>().enabled = false; //fix
            StartCoroutine(WaitSeconds(1));
         }
@@ -51,6 +61,11 @@ public class Enemy : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;//allows it to keep rotation frozen
         animatorPlayer.SetBool("Stunned", false);
        // GameScript.GetComponent<Player2Movement>().enabled = true;
+    }
+
+    IEnumerator KillSwicth(){
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
     }
 
     

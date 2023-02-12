@@ -14,6 +14,7 @@ public class P1GETHIT : MonoBehaviour
     public GameObject HitBox;         //HITBOXES USED TO REGISTER THE ATTACK
     //public GameObject HeavyHitBox;
     public GameObject spikeBox;
+    public GameObject GlitchHitBox;
     
     public int TimeToStop;
     public GameObject HUD;
@@ -30,6 +31,7 @@ public class P1GETHIT : MonoBehaviour
     //cool down for special if changed change at P1special
    public float CooldownTime = 10; //cooldown time
    private float nextCoolDownTime = 10; //cooldown when they can use the ability 
+   public float knockTime;
 
     // Start is called before the first frame update
     void Start()
@@ -62,19 +64,25 @@ public class P1GETHIT : MonoBehaviour
             
             
         }
-        /* if (target.tag == HeavyHitBox.tag)//if collides with heavy hitbox then make em lose health
+        if (target.tag == GlitchHitBox.tag)//if collides with heavy hitbox then make em lose health
         {
             
-            P1health -= HeavyAttack;//lose how much which is stated in the heavy section
-            animatorPlayer.SetBool("Stunned", true);
+            P1health -= P1health;//lose how much which is stated in the heavy section
+            //animatorPlayer.SetBool("Stunned", true);
             StartCoroutine(WaitSeconds());
-            HealthBar1.SetHealth(P1health);
-        } */
+            //HealthBar1.SetHealth(P1health);
+        }
 
         if(target.tag == "Spikes"){
-            Debug.Log("assad");
             P1health -= spikeDamage;
-            StartCoroutine(WaitSeconds());
+            Rigidbody2D player = this.gameObject.GetComponent<Rigidbody2D>(); 
+            Rigidbody2D spike = target.GetComponent<Rigidbody2D>();
+            player.isKinematic = false;
+            Vector2 diff = player.transform.position - spike.transform.position;
+            diff = diff.normalized * 0.5f;
+            player.AddForce(diff, ForceMode2D.Impulse);
+            player.isKinematic = true;
+            StartCoroutine(KnockC(player));
            // HealthBar1.SetHealth(P1health);//new helath is used to set the health bar 
         }
 
@@ -88,6 +96,15 @@ public class P1GETHIT : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         animatorPlayer.SetBool("Stunned", false);
+        
+    }
+
+    private IEnumerator KnockC(Rigidbody2D player){
+        
+        yield return new WaitForSeconds(knockTime);
+        player.velocity = Vector2.zero;
+        player.isKinematic = true;
+
         
     }
 }

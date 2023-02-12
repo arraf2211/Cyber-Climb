@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 1577840470311461280}
   - component: {fileID: 1577840470311461281}
   - component: {fileID: 1577840470311461289}
-  - component: {fileID: 1577840470257442555}
   - component: {fileID: 1577840470257442552}
   - component: {fileID: 1577840470257442534}
   - component: {fileID: 1577840470257442553}
@@ -494,23 +493,6 @@ MonoBehaviour:
   animatorPlayer1: {fileID: 1577840470311461283}
   PlayerSpecial: 118
   PlayerULT: 98
---- !u!114 &1577840470257442555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7644982785266807917}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc03553c6079fd48bf391dbd8452445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedAi: 2
-  DistanceFromPlayer: 0
-  enemy: {fileID: 7644982785266807917}
-  animatorPlayer: {fileID: 1577840470311461283}
-  target: {fileID: 0}
 --- !u!114 &1577840470257442552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +509,7 @@ MonoBehaviour:
   enemy: {fileID: 7644982785266807917}
   animatorPlayer: {fileID: 1577840470311461283}
   rb: {fileID: 7644982785266807916}
+  coll: {fileID: 1482874750910492422}
   MaxHealth: 100
   currentHealth: 0
   damageReceive: 50
