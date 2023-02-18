@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         global = this;
+        #if !(UNITY_EDITOR)
+        Debug.unityLogger.logEnabled = false;
+        #endif
     }
 
     private void Update()

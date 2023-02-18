@@ -535,7 +535,7 @@ AnimationClip:
     intParameter: 20
     messageOptions: 0
   - time: 0.625
-    functionName: returnHeavy3
+    functionName: return3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
